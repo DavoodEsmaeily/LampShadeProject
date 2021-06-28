@@ -1,6 +1,8 @@
 ﻿using _0_Framework.Domain;
 using ShopManagement.Domain.ProductCategoryAgg;
+using ShopManagement.Domain.ProductPictureAgg;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +26,7 @@ namespace ShopManagement.Domain.ProductAgg
         public string Description { get; private set; }
         public long CategoryId { get; private set; }
         public ProductCategory ProductCategory { get; private set; }
+        public ICollection<ProductPicture> ProductPictures { get; private set; }
 
         protected Product()
         {
@@ -47,7 +50,7 @@ namespace ShopManagement.Domain.ProductAgg
             IsInStock =true;
             ShortDecription = shortDescription;
             Description = description;
-           
+            ProductPictures = new List<ProductPicture>();
         }
 
         public void Edit(

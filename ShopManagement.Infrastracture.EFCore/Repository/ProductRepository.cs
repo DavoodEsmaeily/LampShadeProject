@@ -17,12 +17,12 @@ namespace ShopManagement.Infrastracture.EFCore.Repository
         public ProductRepository(ShopContext shopContext) : base(shopContext)
         {
             _shopContext = shopContext;
-     
+
         }
 
         public EditProduct GetDetails(long id)
         {
-            var result =  _shopContext.Products.Include(x => x.ProductCategory).Select(x => new EditProduct
+            var result = _shopContext.Products.Include(x => x.ProductCategory).Select(x => new EditProduct
             {
                 Id = x.Id,
                 Name = x.Name,
@@ -37,15 +37,25 @@ namespace ShopManagement.Infrastracture.EFCore.Repository
                 CategoryId = x.ProductCategory.Id,
                 ShortDecription = x.ShortDecription,
                 Description = x.Description,
-                
+
             }).FirstOrDefault(x => x.Id == id);
 
             return result;
         }
 
+        public List<ProductViewModel> GetProducts()
+        {
+            return _shopContext.Products.Select(x => new ProductViewModel
+            {
+                Id = x.Id,
+                Name = x.Name,
+               
+            }).ToList();
+        }
+
         public List<ProductViewModel> Search(ProductSearchModel searchModel)
         {
-            
+
             var query = _shopContext.Products.Include(x => x.ProductCategory).Select(x => new ProductViewModel
             {
                 Id = x.Id,
@@ -56,7 +66,7 @@ namespace ShopManagement.Infrastracture.EFCore.Repository
                 Picture = x.Picture,
                 IsInStock = x.IsInStock,
                 CategoryId = x.ProductCategory.Id,
-                
+
                 CreationDate = x.CreationDate.ToString(CultureInfo.InvariantCulture)
             });
 
