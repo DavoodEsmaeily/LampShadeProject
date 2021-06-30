@@ -96,3 +96,6 @@ D:\dev\LampShadeProject\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administrator\P
 D:\dev\LampShadeProject\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administrator\Pages\Shop\ProductPictures\Create.cshtml.g.cs
 D:\dev\LampShadeProject\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administrator\Pages\Shop\ProductPictures\Edit.cshtml.g.cs
 D:\dev\LampShadeProject\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administrator\Pages\Shop\ProductPictures\Index.cshtml.g.cs
+D:\dev\LampShadeProject\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administrator\Pages\Shop\Sliders\Create.cshtml.g.cs
+D:\dev\LampShadeProject\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administrator\Pages\Shop\Sliders\Edit.cshtml.g.cs
+D:\dev\LampShadeProject\ServiceHost\obj\Debug\net5.0\Razor\Areas\Administrator\Pages\Shop\Sliders\Index.cshtml.g.cs
