@@ -21,3 +21,5 @@ D:\dev\LampShadeProject\ShopManagement.Infrastracture.Configuration\obj\Debug\ne
 D:\dev\LampShadeProject\ShopManagement.Infrastracture.Configuration\obj\Debug\net5.0\ShopManagement.Infrastracture.Configuration.dll
 D:\dev\LampShadeProject\ShopManagement.Infrastracture.Configuration\obj\Debug\net5.0\ref\ShopManagement.Infrastracture.Configuration.dll
 D:\dev\LampShadeProject\ShopManagement.Infrastracture.Configuration\obj\Debug\net5.0\ShopManagement.Infrastracture.Configuration.pdb
+D:\dev\LampShadeProject\ShopManagement.Infrastracture.Configuration\bin\Debug\net5.0\01_LampshadeQuery.dll
+D:\dev\LampShadeProject\ShopManagement.Infrastracture.Configuration\bin\Debug\net5.0\01_LampshadeQuery.pdb

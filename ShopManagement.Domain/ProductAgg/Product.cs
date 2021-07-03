@@ -27,6 +27,7 @@ namespace ShopManagement.Domain.ProductAgg
         public long CategoryId { get; private set; }
         public ProductCategory ProductCategory { get; private set; }
         public ICollection<ProductPicture> ProductPictures { get; private set; }
+     
 
         protected Product()
         {

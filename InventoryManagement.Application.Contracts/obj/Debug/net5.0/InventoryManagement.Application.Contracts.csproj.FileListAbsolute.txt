@@ -1,0 +1,15 @@
+D:\dev\LampShadeProject\InventoryManagement.Application.Contracts\bin\Debug\net5.0\InventoryManagement.Application.Contracts.deps.json
+D:\dev\LampShadeProject\InventoryManagement.Application.Contracts\bin\Debug\net5.0\InventoryManagement.Application.Contracts.dll
+D:\dev\LampShadeProject\InventoryManagement.Application.Contracts\bin\Debug\net5.0\ref\InventoryManagement.Application.Contracts.dll
+D:\dev\LampShadeProject\InventoryManagement.Application.Contracts\bin\Debug\net5.0\InventoryManagement.Application.Contracts.pdb
+D:\dev\LampShadeProject\InventoryManagement.Application.Contracts\bin\Debug\net5.0\0_Framework.dll
+D:\dev\LampShadeProject\InventoryManagement.Application.Contracts\bin\Debug\net5.0\0_Framework.pdb
+D:\dev\LampShadeProject\InventoryManagement.Application.Contracts\obj\Debug\net5.0\InventoryManagement.Application.Contracts.csprojAssemblyReference.cache
+D:\dev\LampShadeProject\InventoryManagement.Application.Contracts\obj\Debug\net5.0\InventoryManagement.Application.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\dev\LampShadeProject\InventoryManagement.Application.Contracts\obj\Debug\net5.0\InventoryManagement.Application.Contracts.AssemblyInfoInputs.cache
+D:\dev\LampShadeProject\InventoryManagement.Application.Contracts\obj\Debug\net5.0\InventoryManagement.Application.Contracts.AssemblyInfo.cs
+D:\dev\LampShadeProject\InventoryManagement.Application.Contracts\obj\Debug\net5.0\InventoryManagement.Application.Contracts.csproj.CoreCompileInputs.cache
+D:\dev\LampShadeProject\InventoryManagement.Application.Contracts\obj\Debug\net5.0\InventoryManagement.Application.Contracts.csproj.CopyComplete
+D:\dev\LampShadeProject\InventoryManagement.Application.Contracts\obj\Debug\net5.0\InventoryManagement.Application.Contracts.dll
+D:\dev\LampShadeProject\InventoryManagement.Application.Contracts\obj\Debug\net5.0\ref\InventoryManagement.Application.Contracts.dll
+D:\dev\LampShadeProject\InventoryManagement.Application.Contracts\obj\Debug\net5.0\InventoryManagement.Application.Contracts.pdb
