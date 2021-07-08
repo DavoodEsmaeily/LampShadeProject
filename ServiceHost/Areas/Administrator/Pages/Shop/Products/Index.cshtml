@@ -31,7 +31,7 @@
                         <input class="form-control" placeholder="کد" asp-for="SearchModel.Code">
                     </div>
                     <div class="form-group">
-                        <label class="sr-only"  asp-for="SearchModel.CategoryId"></label>
+                        <label class="sr-only" asp-for="SearchModel.CategoryId"></label>
                         <select class="form-control" asp-items="Model.ProductCategories" placeholder="گروه محصولی" asp-for="SearchModel.CategoryId">
                             <optin value="0">انتخاب گروه محصولی</optin>
                         </select>
@@ -60,9 +60,7 @@
                                     <th>عکس</th>
                                     <th>نام</th>
                                     <th>کد</th>
-                                    <th>قیمت واحد</th>
                                     <th>گروه محصولی</th>
-                                    <th>وضعیت</th>
                                     <th>تاریخ تولید</th>
                                     <th>عملیات</th>
                                 </tr>
@@ -73,24 +71,12 @@
                                     <tr>
                                         <td>@product.Id</td>
                                         <td>
-                                            <img src="@product.Picture" alt="@product.Name" style="width: 70px; height: 70px" />
+                                            <img src="~/ProductPictures/@product.Picture" alt="@product.Name" style="width: 70px; height: 70px" />
                                         </td>
                                         <td>@product.Name</td>
                                         <td>@product.Code</td>
-                                        <td>@product.UnitPrice</td>
                                         <td>@product.Category</td>
-                                        <td>
 
-                                            @if (!product.IsInStock)
-                                            {
-                                                <i class="fa fa-close fa-2x text-danger"></i>
-                                            }
-                                            else
-                                            {
-                                                <i class="fa fa-check fa-2x text-success"></i>
-
-                                            }
-                                        </td>
                                         <td>@product.CreationDate</td>
                                         <td>
                                             <a class="btn btn-warning pull-right m-rl-5"
@@ -98,20 +84,7 @@
                                                 <i class="fa fa-edit"></i> ویرایش
                                             </a>
 
-                                            @if (product.IsInStock)
-                                            {
-                                                <form method="post" asp-page-handler="NotInStock" class="float-left">
-                                                    <button class="btn btn-danger">اتمام موجودی</button>
-                                                    <input type="hidden" name="id" value="@product.Id" />
-                                                </form>
-                                            }
-                                            else
-                                            {
-                                                <form method="post" asp-page-handler="InStock" class="float-left">
-                                                    <button class="btn btn-success"> موجودی</button>
-                                                    <input type="hidden" name="id" value="@product.Id" />
-                                                </form>
-                                            }
+
                                         </td>
                                     </tr>
                                 }
@@ -130,8 +103,8 @@
     <script src="~/adminTheme/assets/datatables/dataTables.bootstrap.js"></script>
 
     <script type="text/javascript">
-    $(document).ready(function () {
-        $('#datatable').dataTable();
-    });
+        $(document).ready(function () {
+            $('#datatable').dataTable();
+        });
     </script>
 }

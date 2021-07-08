@@ -24,7 +24,7 @@ namespace InventoryManagement.Domain.InventoryAgg
         public long CalculateCurrentCount()
         {
             var plus = Operations.Where(x => x.Operation).Sum(x => x.Count);
-            var minus = Operations.Where(x => x.Operation).Sum(x => x.Count);
+            var minus = Operations.Where(x => !x.Operation).Sum(x => x.Count);
             return plus - minus;
         }
 
@@ -40,7 +40,7 @@ namespace InventoryManagement.Domain.InventoryAgg
         public void Reduce(long operatorId, long count, string discription , long OrderId)
         {
             var currentCount = CalculateCurrentCount() - count;
-            var operation = new InventoryOperation(true, operatorId, count, currentCount, discription, OrderId, Id);
+            var operation = new InventoryOperation(false, operatorId, count, currentCount, discription, OrderId, Id);
             Operations.Add(operation);
             InStock = currentCount > 0;
         }

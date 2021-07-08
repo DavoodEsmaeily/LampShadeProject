@@ -1,8 +1,5 @@
-﻿using System;
+﻿using ShopManagement.Application.Contracts.Product;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InventoryManagement.Application.Contracts.Inventory
 {
@@ -10,5 +7,6 @@ namespace InventoryManagement.Application.Contracts.Inventory
     {
         public long ProductId { get; set; }
         public double UnitPrice { get; set; }
+        public List<ProductViewModel> Products { get; set; }
     }
 }

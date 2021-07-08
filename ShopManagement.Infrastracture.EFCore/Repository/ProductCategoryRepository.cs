@@ -16,6 +16,11 @@ namespace ShopManagement.Infrastracture.EFCore.Repository
             _context = context;
         }
 
+        public string GetCategorySlugBy(long id)
+        {
+            return _context.ProductCategories.Select(x => new { x.Id, x.Slug }).FirstOrDefault(x => x.Id == id).Slug;
+        }
+
         public EditProductCategory GetDetails(long id)
         {
             return _context.ProductCategories.Select(x => new EditProductCategory {
@@ -24,7 +29,7 @@ namespace ShopManagement.Infrastracture.EFCore.Repository
                 Keywords = x.Keywords,
                 Description = x.Description,
                 MetaDescription = x.MetaDescription,
-                Picture = x.Picture,
+                //Picture = x.Picture,
                 PictureAlt = x.PictureAlt,
                 PictureTitle = x.PictureTitle,
                 Slug = x.Slug

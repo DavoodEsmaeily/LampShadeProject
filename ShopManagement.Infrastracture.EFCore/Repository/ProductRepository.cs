@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using ShopManagement.Application.Contracts.Product;
 using ShopManagement.Domain.ProductAgg;
-using ShopManagement.Domain.ProductCategoryAgg;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -12,7 +11,7 @@ namespace ShopManagement.Infrastracture.EFCore.Repository
     public class ProductRepository : RepositoryBase<long, Product>, IProductRepository
     {
         private readonly ShopContext _shopContext;
-
+        
 
         public ProductRepository(ShopContext shopContext) : base(shopContext)
         {
@@ -27,8 +26,6 @@ namespace ShopManagement.Infrastracture.EFCore.Repository
                 Id = x.Id,
                 Name = x.Name,
                 Code = x.Code,
-                Picture = x.Picture,
-                UnitPrice = x.UnitPrice,
                 Slug = x.Slug,
                 PictureTitle = x.PictureTitle,
                 PictureAlt = x.PictureAlt,
@@ -53,6 +50,16 @@ namespace ShopManagement.Infrastracture.EFCore.Repository
             }).ToList();
         }
 
+        public Product GetProductWithCategoryById(long id)
+        {
+            return _shopContext.Products.Include(x => x.ProductCategory).FirstOrDefault(x => x.Id == id);
+        }
+
+        public string GetProductWithSlugById(long id)
+        {
+            return _shopContext.Products.Select(x => new { x.Id, x.Slug }).FirstOrDefault(x => x.Id == id).Slug;
+        }
+
         public List<ProductViewModel> Search(ProductSearchModel searchModel)
         {
 
@@ -62,9 +69,8 @@ namespace ShopManagement.Infrastracture.EFCore.Repository
                 Name = x.Name,
                 Category = x.ProductCategory.Name,
                 Code = x.Code,
-                UnitPrice = x.UnitPrice,
+               
                 Picture = x.Picture,
-                IsInStock = x.IsInStock,
                 CategoryId = x.ProductCategory.Id,
 
                 CreationDate = x.CreationDate.ToString(CultureInfo.InvariantCulture)

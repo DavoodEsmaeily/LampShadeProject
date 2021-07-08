@@ -1,6 +1,7 @@
 ﻿using _0_Framework.Application;
 using ShopManagement.Application.Contracts.Product;
 using ShopManagement.Domain.ProductAgg;
+using ShopManagement.Domain.ProductCategoryAgg;
 using System;
 using System.Collections.Generic;
 
@@ -9,10 +10,14 @@ namespace ShopManagement.Application
     public class ProductApplication : IProductApplication
     {
         private readonly IProductRepository _productRepository;
+        private readonly IFileUploader _fileUploader;
+        private readonly IProductCategoryRepository _productCategoryRepository;
 
-        public ProductApplication(IProductRepository productRepository)
+        public ProductApplication(IProductRepository productRepository, IFileUploader fileUploader, IProductCategoryRepository productCategoryRepository)
         {
             _productRepository = productRepository;
+            _fileUploader = fileUploader;
+            _productCategoryRepository = productCategoryRepository;
         }
 
         public OperationResult Create(CreateProduct command)
@@ -23,8 +28,10 @@ namespace ShopManagement.Application
                 return operation.Failed(ApplicationMessages.DuplicatedRecord);
 
             var slug = command.Slug.Slugify();
-            var product = new Product(command.Name, command.Code, command.UnitPrice,
-                command.Picture, command.PictureAlt, command.PictureTitle, command.Keywords,
+            var picturePath = $"{_productCategoryRepository.GetCategorySlugBy(command.CategoryId)}//{slug}";
+            var pictureFileName = _fileUploader.Upload(command.Picture, picturePath);
+            var product = new Product(command.Name, command.Code, 
+                pictureFileName, command.PictureAlt, command.PictureTitle, command.Keywords,
                 command.MetaDescription, slug, command.CategoryId  , command.ShortDecription , command.Description);
 
             _productRepository.Create(product);
@@ -37,7 +44,7 @@ namespace ShopManagement.Application
         {
             var operation = new OperationResult();
 
-            var product = _productRepository.Get(command.Id);
+            var product = _productRepository.GetProductWithCategoryById(command.Id);
             if (product == null)
                 return operation.Failed(ApplicationMessages.RecordNotFound);
 
@@ -45,8 +52,10 @@ namespace ShopManagement.Application
                 return operation.Failed(ApplicationMessages.DuplicatedRecord);
 
             var slug = command.Slug.Slugify();
-            product.Edit(command.Name, command.Code, command.UnitPrice,
-                command.Picture, command.PictureAlt, command.PictureTitle, command.Keywords,
+            var picturePath = $"{product.ProductCategory.Slug}//{slug}";
+            var pictureFileName = _fileUploader.Upload(command.Picture, picturePath);
+            product.Edit(command.Name, command.Code,
+                pictureFileName, command.PictureAlt, command.PictureTitle, command.Keywords,
                 command.MetaDescription, slug, command.CategoryId , command.ShortDecription , command.Description);
 
             _productRepository.SaveChanges();
@@ -58,34 +67,7 @@ namespace ShopManagement.Application
             return _productRepository.GetDetails(id);
         }
 
-        public OperationResult NotInStock(long id)
-        {
-            var operation = new OperationResult();
-
-            var product = _productRepository.Get(id);
-            if (product == null)
-                return operation.Failed(ApplicationMessages.RecordNotFound);
-
-            product.NotInStock();
-            _productRepository.SaveChanges();
-
-            return operation.Succeded();
-        }
-
-        public OperationResult InStock(long id)
-        {
-            var operation = new OperationResult();
-
-            var product = _productRepository.Get(id);
-            if (product == null)
-                return operation.Failed(ApplicationMessages.RecordNotFound);
-
-            product.InStock() ;
-            _productRepository.SaveChanges();
-
-            return operation.Succeded();
-        }
-
+        
         public List<ProductViewModel> Search(ProductSearchModel searchModel)
         {
             return _productRepository.Search(searchModel);

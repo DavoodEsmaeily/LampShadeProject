@@ -8,5 +8,6 @@
         public long CurrentCount { get; set; }
         public bool InStock { get; set; }
         public string CreationDate { get; set; }
+        public double UnitPrice { get; set; }
     }
 }

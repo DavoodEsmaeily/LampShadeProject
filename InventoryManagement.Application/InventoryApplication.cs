@@ -32,7 +32,7 @@ namespace InventoryManagement.Application
         public OperationResult Edit(EditInventory command)
         {
             var operation = new OperationResult();
-            var inventory = _inventoryRepository.GetBy(command.ProductId);
+            var inventory = _inventoryRepository.Get(command.Id);
             if (inventory == null)
                 return operation.Failed(ApplicationMessages.RecordNotFound);
 
@@ -50,6 +50,11 @@ namespace InventoryManagement.Application
             return _inventoryRepository.GetDetails(id);
         }
 
+        public List<InventoryOperationViewModel> GetOperationLog(long inventoryId)
+        {
+            return _inventoryRepository.GetOperationLog(inventoryId);
+        }
+
         public OperationResult Increase(IncreaseInventory command)
         {
             var operation = new OperationResult();
@@ -57,7 +62,7 @@ namespace InventoryManagement.Application
             if (inventory == null)
                 return operation.Failed(ApplicationMessages.RecordNotFound);
 
-            inventory.Increase(command.OperatorId, command.Count, command.Discription);
+            inventory.Increase(1, command.Count, command.Discription);
             _inventoryRepository.SaveChanges();
 
             return operation.Succeded();
@@ -66,11 +71,11 @@ namespace InventoryManagement.Application
         public OperationResult Reduce(ReduceInventory command)
         {
             var operation = new OperationResult();
-            var inventory = _inventoryRepository.GetBy(command.ProductId);
+            var inventory = _inventoryRepository.Get(command.InventoryId);
             if (inventory == null)
                 return operation.Failed(ApplicationMessages.RecordNotFound);
 
-            inventory.Reduce(command.OperatorId,command.Count , command.Discription , command.OrderId);
+            inventory.Reduce(1, command.Count, command.Discription, command.OrderId);
             _inventoryRepository.SaveChanges();
 
             return operation.Succeded();
@@ -84,10 +89,10 @@ namespace InventoryManagement.Application
                 var inventory = _inventoryRepository.GetBy(item.ProductId);
                 if (inventory == null)
                     return operation.Failed(ApplicationMessages.RecordNotFound);
-                inventory.Reduce(item.OperatorId, item.Count, item.Discription, item.OrderId);
-                _inventoryRepository.SaveChanges();
+                inventory.Reduce(1, item.Count, item.Discription, item.OrderId);
+
             }
-                       
+            _inventoryRepository.SaveChanges();
             return operation.Succeded();
         }
 

@@ -28,6 +28,12 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+              "D:\\dev\\LampShadeProject\\DiscountManagement.Infrastracture.EFCore\\DiscountManagement.Infrastracture.EFCore.csproj": {
+                "projectPath": "D:\\dev\\LampShadeProject\\DiscountManagement.Infrastracture.EFCore\\DiscountManagement.Infrastracture.EFCore.csproj"
+              },
+              "D:\\dev\\LampShadeProject\\InventoryManagement.Infstracture.EFCore\\InventoryManagement.Infstracture.EFCore.csproj": {
+                "projectPath": "D:\\dev\\LampShadeProject\\InventoryManagement.Infstracture.EFCore\\InventoryManagement.Infstracture.EFCore.csproj"
+              },
               "D:\\dev\\LampShadeProject\\ShopManagement.Infrastracture.EFCore\\ShopManagement.Infrastracture.EFCore.csproj": {
                 "projectPath": "D:\\dev\\LampShadeProject\\ShopManagement.Infrastracture.EFCore\\ShopManagement.Infrastracture.EFCore.csproj"
               }
@@ -98,6 +104,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.7, )"
@@ -478,6 +492,9 @@
             "projectReferences": {
               "D:\\dev\\LampShadeProject\\0_Framework\\0_Framework.csproj": {
                 "projectPath": "D:\\dev\\LampShadeProject\\0_Framework\\0_Framework.csproj"
+              },
+              "D:\\dev\\LampShadeProject\\ShopManagement.Application.Contracts\\ShopManagement.Application.Contracts.csproj": {
+                "projectPath": "D:\\dev\\LampShadeProject\\ShopManagement.Application.Contracts\\ShopManagement.Application.Contracts.csproj"
               }
             }
           }

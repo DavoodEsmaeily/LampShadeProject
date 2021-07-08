@@ -194,7 +194,7 @@ function handleAjaxCall(method, url, data) {
 //            return true;
 //        }
 //    });
-/*jQuery.validator.unobtrusive.adapters.addBool("maxFileSize");*/
+//jQuery.validator.unobtrusive.adapters.addBool("maxFileSize");
 
 //jQuery.validator.addMethod("maxFileSize",
 //    function (value, element, params) {

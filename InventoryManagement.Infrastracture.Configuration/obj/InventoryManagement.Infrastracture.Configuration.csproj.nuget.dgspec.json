@@ -40,6 +40,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.7, )"
@@ -90,6 +98,9 @@
             "projectReferences": {
               "D:\\dev\\LampShadeProject\\0_Framework\\0_Framework.csproj": {
                 "projectPath": "D:\\dev\\LampShadeProject\\0_Framework\\0_Framework.csproj"
+              },
+              "D:\\dev\\LampShadeProject\\ShopManagement.Application.Contracts\\ShopManagement.Application.Contracts.csproj": {
+                "projectPath": "D:\\dev\\LampShadeProject\\ShopManagement.Application.Contracts\\ShopManagement.Application.Contracts.csproj"
               }
             }
           }

@@ -13,6 +13,7 @@
       method="post"
       data-ajax="true"
       data-callback=""
+      enctype="multipart/form-data"
       data-action="Refresh"
      >
     <div class="modal-body">
@@ -32,19 +33,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label asp-for="Code" class="control-label">کد</label>
                     <input type="text" class="form-control" asp-for="Code">
                     <span asp-validation-for="Code" class="error"></span>
                 </div>
-            </div><div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="UnitPrice" class="control-label">قیمت واحد</label>
-                    <input type="number" class="form-control" asp-for="UnitPrice">
-                    <span asp-validation-for="UnitPrice" class="error"></span>
-                </div>
             </div>
+            
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -61,7 +57,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label asp-for="Picture" class="control-label">عکس</label>
-                    <input type="text" class="form-control" asp-for="Picture">
+                    <input type="file" class="form-control" asp-for="Picture"accept="image/*"> 
                     <span asp-validation-for="Picture" class="error"></span>
                 </div>
             </div>

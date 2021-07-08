@@ -14,8 +14,6 @@ namespace ShopManagement.Domain.ProductAgg
     {
         public string Name { get; private set; }
         public string Code { get; private set; }
-        public double UnitPrice { get; private set; }
-        public bool IsInStock { get; private set; }
         public string Picture { get; private set; }
         public string PictureAlt { get; private set; }
         public string PictureTitle { get; private set; }
@@ -33,14 +31,14 @@ namespace ShopManagement.Domain.ProductAgg
         {
         }
 
-        public Product(string name, string code, double unitPrice,
+        public Product(string name, string code,
             string picture, string pictureAlt, string pictureTitle, 
             string keywords, string metaDescription, string slug, long categoryId ,
             string shortDescription , string description)
         {
             Name = name;
             Code = code;
-            UnitPrice = unitPrice;
+            
             Picture = picture;
             PictureAlt = pictureAlt;
             PictureTitle = pictureTitle;
@@ -48,22 +46,23 @@ namespace ShopManagement.Domain.ProductAgg
             MetaDescription = metaDescription;
             Slug = slug;
             CategoryId = categoryId;
-            IsInStock =true;
             ShortDecription = shortDescription;
             Description = description;
             ProductPictures = new List<ProductPicture>();
         }
 
         public void Edit(
-            string name, string code, double unitPrice,
+            string name, string code, 
             string picture, string pictureAlt, string pictureTitle,
             string keywords, string metaDescription, string slug, long categoryId,
              string shortDescription, string description)
         {
             Name = name;
             Code = code;
-            UnitPrice = unitPrice;
-            Picture = picture;
+
+            if (!string.IsNullOrWhiteSpace(picture))
+                Picture = picture;
+
             PictureAlt = pictureAlt;
             PictureTitle = pictureTitle;
             Keywords = keywords;
@@ -75,14 +74,5 @@ namespace ShopManagement.Domain.ProductAgg
             Description = description;
         }
 
-        public void NotInStock()
-        {
-            IsInStock = false;
-        }
-
-        public void InStock()
-        {
-            IsInStock = true;
-        }
     }
 }
